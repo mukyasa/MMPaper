@@ -1,7 +1,7 @@
 MMPaper
 =======
 
-This is Extension Of HAPaper (For Pan Gesture)
+This is Extension Of HAPaper (zoom effect on UIPanGestureRecognizer)
 
 
 Working:- 
