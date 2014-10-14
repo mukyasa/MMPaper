@@ -125,7 +125,7 @@
     subTitle.backgroundColor = [UIColor clearColor];
     subTitle.textColor = [UIColor whiteColor];
     subTitle.font = [UIFont fontWithName:@"Helvetica" size:13];
-    subTitle.text = @"Extension Of HAPaper By Heberti Almeida";
+    subTitle.text = @"Extension Of HAPaperViewController(Heberti Almeida)";
     subTitle.lineBreakMode = NSLineBreakByWordWrapping;
     subTitle.numberOfLines = 0;
     [subTitle sizeToFit];

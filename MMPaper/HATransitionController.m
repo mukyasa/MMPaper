@@ -258,24 +258,29 @@
 //                    {
 //                        distanceDelta = -distanceDelta;
 //                    }
+//                    
+//                    if (velocity.y > 0) {
+////                        progress = ([sender translationInView:sender.view].y )/ (sender.view.bounds.size.height * 1.0);
+//                          progress = ([sender translationInView:sender.view].y )*(M_PI) / (sender.view.bounds.size.width * 1.0);
+//                    } else {
+////                        progress = ([sender translationInView:sender.view].x ) / (sender.view.bounds.size.height * 1.0);
+//                          progress = ([sender translationInView:sender.view].x)*(M_PI) / (sender.view.bounds.size.width * 1.0);
+//                    }
                     
-                    if (velocity.y > 0) {
-//                        progress = ([sender translationInView:sender.view].y )/ (sender.view.bounds.size.height * 1.0);
-                          progress = ([sender translationInView:sender.view].y )*(M_PI) / (sender.view.bounds.size.width * 1.0);
-                    } else {
-//                        progress = ([sender translationInView:sender.view].x ) / (sender.view.bounds.size.height * 1.0);
-                          progress = ([sender translationInView:sender.view].x)*(M_PI) / (sender.view.bounds.size.width * 1.0);
-                    }
+                    
+                    progress = ([sender translationInView:sender.view].y )*(M_PI) / (sender.view.bounds.size.width * 1.0);
+
                   
 
                     
-                    progress = MIN(1.0, MAX(0.0, progress));
+                    progress = MIN(1.0, MAX(0.0, ABS(progress)));
                     NSLog(@"%f",progress);
                     CGFloat offsetX = point.x - self.initialPinchPoint.x;
                     CGFloat offsetY = (point.y - self.initialPinchPoint.y) + delta/M_PI;
                     
                     UIOffset offsetToUse = UIOffsetMake(offsetX, offsetY);
-                    [self updateWithProgress:progress andOffset:offsetToUse];
+                    //[self updateWithProgress:progress andOffset:offsetToUse];
+                    [self updateWithProgress:progress];
 
                     
                 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>51306FBC-9C2A-43E3-A5C6-FE4EB10F4B28</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MMPaper</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>29D5909CDE5274831377B7BE6834D2070BA24FCF</key>
+		<string>github.com:mukyasa/MMPaper.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MMPaper.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>29D5909CDE5274831377B7BE6834D2070BA24FCF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:mukyasa/MMPaper.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>29D5909CDE5274831377B7BE6834D2070BA24FCF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>29D5909CDE5274831377B7BE6834D2070BA24FCF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MMPaper</string>
+		</dict>
+	</array>
+</dict>
+</plist>
