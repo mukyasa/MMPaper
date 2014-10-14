@@ -12,3 +12,4 @@ Things To do:-
 1.Performance Improvemnet Of Zooming On Pan Gesture
 
 Please Let Me know If anyone figure out more smooth pan gesture  
+
