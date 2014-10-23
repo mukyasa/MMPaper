@@ -13,3 +13,10 @@ Things To do:-
 
 Please Let Me know If anyone figure out more smooth pan gesture  
 
+Contact Me
+==========
+
+Contact: mandoramuku@gmail.com 
+Twitter: http://twitter.com/mukyasa1310
+LinkedIn: https://in.linkedin.com/in/mukeshmandora
+
