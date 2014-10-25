@@ -1,6 +1,6 @@
 MMPaper
 =======
-![Alt text](https://www.dropbox.com/s/jt3ssasu2bk4361/IMG_0688.GIF?dl=0)
+
 This is Extension Of HAPaper (zoom effect on UIPanGestureRecognizer)
 
 Working:- 
