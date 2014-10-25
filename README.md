@@ -16,6 +16,7 @@ Please Let Me know If anyone figure out more smooth pan gesture
 
 Contact Me
 ==========
+Mukesh Mandora
 
 Contact: mandoramuku07@gmail.com
 
