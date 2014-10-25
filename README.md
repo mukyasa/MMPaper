@@ -5,7 +5,6 @@ This is Extension Of HAPaper (zoom effect on UIPanGestureRecognizer)
 
 ![Demo MMPaper](http://s25.postimg.org/mo6n6vdr3/IMG_0688.gif)
 
-
 Working:- 
 Pan Gesture
 
