@@ -10,7 +10,8 @@
 #import "HATransitionController.h"
 #import "HACollectionViewSmallLayout.h"
 #import "HASmallCollectionViewController.h"
-
+#import "MMViewController.h"
+#import "MMSmallLayout.h"
 @interface MMAppDelegate () <UINavigationControllerDelegate, HATransitionControllerDelegate>
 
 @property (nonatomic) UINavigationController *navigationController;
@@ -23,9 +24,21 @@
 {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+   
     
-    HACollectionViewSmallLayout *smallLayout = [[HACollectionViewSmallLayout alloc] init];
-    HASmallCollectionViewController *collectionViewController = [[HASmallCollectionViewController alloc] initWithCollectionViewLayout:smallLayout];
+//    HACollectionViewSmallLayout *smallLayout = [[HACollectionViewSmallLayout alloc] init];
+//    HASmallCollectionViewController *collectionViewController = [[HASmallCollectionViewController alloc] initWithCollectionViewLayout:smallLayout];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
+//    self.navigationController.delegate = self;
+//    self.navigationController.navigationBarHidden = YES;
+//    
+//    self.transitionController = [[HATransitionController alloc] initWithCollectionView:collectionViewController.collectionView];
+//    self.transitionController.delegate = self;
+    _itemHeight=self.window.frame.size.height;
+    
+    MMSmallLayout *smallLayout = [[MMSmallLayout alloc] init];
+    MMViewController *collectionViewController = [[MMViewController alloc] initWithCollectionViewLayout:smallLayout];
+
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
     self.navigationController.delegate = self;
     self.navigationController.navigationBarHidden = YES;
@@ -39,12 +52,24 @@
     return YES;
 }
 
+
+
 - (void)interactionBeganAtPoint:(CGPoint)point
 {
     // Very basic communication between the transition controller and the top view controller
     // It would be easy to add more control, support pop, push or no-op
-    HASmallCollectionViewController *presentingVC = (HASmallCollectionViewController *)[self.navigationController topViewController];
-    HASmallCollectionViewController *presentedVC = (HASmallCollectionViewController *)[presentingVC nextViewControllerAtPoint:point];
+//    HASmallCollectionViewController *presentingVC = (HASmallCollectionViewController *)[self.navigationController topViewController];
+//    HASmallCollectionViewController *presentedVC = (HASmallCollectionViewController *)[presentingVC nextViewControllerAtPoint:point];
+//    if (presentedVC!=nil)
+//    {
+//        [self.navigationController pushViewController:presentedVC animated:YES];
+//    }
+//    else
+//    {
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }
+    MMViewController *presentingVC = (MMViewController *)[self.navigationController topViewController];
+    MMViewController *presentedVC = (MMViewController *)[presentingVC nextViewControllerAtPoint:point];
     if (presentedVC!=nil)
     {
         [self.navigationController pushViewController:presentedVC animated:YES];

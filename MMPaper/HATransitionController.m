@@ -8,7 +8,7 @@
 
 #import "HATransitionController.h"
 #import "HATransitionLayout.h"
-
+#import "POP.h"
 @interface HATransitionController ()
 
 @property (nonatomic) HATransitionLayout* transitionLayout;
@@ -98,8 +98,21 @@
         [self.transitionLayout invalidateLayout];
         [self.context updateInteractiveTransition:progress];
     }
-}
+    else{
+        NSLog(@"hiee");
+        POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        scaleAnimation.duration = 0.1;
+        scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
+        [self.collectionView pop_addAnimation:scaleAnimation forKey:@"scalingUp"];
+        
+        POPSpringAnimation *sprintAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        sprintAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+        sprintAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+        sprintAnimation.springBounciness = 10.f;
+        [self.collectionView pop_addAnimation:sprintAnimation forKey:@"springAnimation"];
 
+    }
+}
 - (void)updateWithProgress:(CGFloat)progress
 {
     if (self.context != nil && ((progress != self.transitionLayout.transitionProgress)))
@@ -107,6 +120,57 @@
         [self.transitionLayout setTransitionProgress:progress];
         [self.transitionLayout invalidateLayout];
         [self.context updateInteractiveTransition:progress];
+    }
+    else{
+        NSLog(@"hiee");
+        
+        POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        scaleAnimation.duration = 0.1;
+        scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+        [self.collectionView pop_addAnimation:scaleAnimation forKey:@"scalingUp"];
+        
+        POPSpringAnimation *sprintAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        sprintAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+        sprintAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+        sprintAnimation.springBounciness = 10.f;
+        [self.collectionView pop_addAnimation:sprintAnimation forKey:@"springAnimation"];
+        
+        
+        
+    }
+}
+- (void)updateWithProgress:(CGFloat)progress withPanDirection:(NSString*)dir
+{
+    if (self.context != nil && ((progress != self.transitionLayout.transitionProgress)))
+    {
+        [self.transitionLayout setTransitionProgress:progress];
+        [self.transitionLayout invalidateLayout];
+        [self.context updateInteractiveTransition:progress];
+    }
+    else{
+       NSLog(@"hiee");
+      
+        if([dir isEqualToString:@"up"]){
+//            POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+//            scaleAnimation.duration = 0.1;
+//            scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
+//            [self.collectionView pop_addAnimation:scaleAnimation forKey:@"scalingUp"];
+//            
+//            POPSpringAnimation *sprintAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+//            sprintAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.9, 0.9)];
+//            sprintAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+//            sprintAnimation.springBounciness = 10.f;
+//            [self.collectionView pop_addAnimation:sprintAnimation forKey:@"springAnimation"];
+            
+
+            
+        }
+        else{
+            
+        }
+        
+        
+        
     }
 }
 
@@ -211,6 +275,13 @@
     if (sender.state == UIGestureRecognizerStateEnded)
     {
         [self endInteractionWithSuccess:YES];
+        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+        anim.springBounciness = 0;
+        anim.springSpeed = 1;
+        
+        [sender.view pop_addAnimation:anim forKey:@"scale"];
+
     }
     else if (sender.state == UIGestureRecognizerStateCancelled)
     {
@@ -219,7 +290,7 @@
     else
     {
         CGPoint velocity = [sender velocityInView:sender.view];
-        
+        CGPoint translation = [sender translationInView:sender.view.superview];
         BOOL isVerticalGesture = fabs(velocity.y) > fabs(velocity.x);
         
         if (isVerticalGesture) {
@@ -251,38 +322,67 @@
             if (self.hasActiveInteraction){
                 if (sender.state == UIGestureRecognizerStateChanged)
                 {
-                    CGFloat delta = distance - self.initialPinchDistance;
+                    
+//                     CGFloat delta = distance - self.initialPinchDistance;
+//                    progress = ([sender translationInView:sender.view].y )*(M_PI_2) / (sender.view.bounds.size.height * 1.0);
+////                    progress = MIN(1.0, MAX(0.0, ABS(progress)));
+//                    NSLog(@"%f",progress);
 //                    
-//                    CGFloat distanceDelta = distance - self.initialPinchDistance;
-//                    if (self.navigationOperation == UINavigationControllerOperationPop)
+//                    if (self.navigationOperation == UINavigationControllerOperationPush)
 //                    {
-//                        distanceDelta = -distanceDelta;
+//                        progress = -progress;
 //                    }
-//                    
-//                    if (velocity.y > 0) {
-////                        progress = ([sender translationInView:sender.view].y )/ (sender.view.bounds.size.height * 1.0);
-//                          progress = ([sender translationInView:sender.view].y )*(M_PI) / (sender.view.bounds.size.width * 1.0);
-//                    } else {
-////                        progress = ([sender translationInView:sender.view].x ) / (sender.view.bounds.size.height * 1.0);
-//                          progress = ([sender translationInView:sender.view].x)*(M_PI) / (sender.view.bounds.size.width * 1.0);
+//
+//                    if(ABS(progress)>=1 || ABS(progress)>=0.99){
+//                        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+//                        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(progress, progress)];
+//                        anim.springBounciness = 4;
+//                        anim.springSpeed = 1;
+//                        
+//                    [sender.view pop_addAnimation:anim forKey:@"scale"];
+//                      
+//                    }
+//                    else{
+//                     
+//                        [self updateWithProgress:progress];
 //                    }
                     
-                    
-                    progress = ([sender translationInView:sender.view].y )*(M_PI) / (sender.view.bounds.size.width * 1.0);
-
-                  
-
-                    
-                    progress = MIN(1.0, MAX(0.0, ABS(progress)));
+                    progress=translation.y*(M_PI_2)/CGRectGetHeight(sender.view.bounds);
+                    if (self.navigationOperation == UINavigationControllerOperationPush)
+                    {
+                        progress = -progress;
+                    }
                     NSLog(@"%f",progress);
-                    CGFloat offsetX = point.x - self.initialPinchPoint.x;
-                    CGFloat offsetY = (point.y - self.initialPinchPoint.y) + delta/M_PI;
-                    
-                    UIOffset offsetToUse = UIOffsetMake(offsetX, offsetY);
-                    //[self updateWithProgress:progress andOffset:offsetToUse];
-                    [self updateWithProgress:progress];
+                    if(ABS(progress)>=1 || ABS(progress)>=0.99){
+                        
+//                        if (self.navigationOperation == UINavigationControllerOperationPush)
+//                        {
+//                            POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+//                            anim.toValue = [NSValue valueWithCGPoint:CGPointMake(progress, progress)];
+//                            anim.springBounciness = 4;
+//                            anim.springSpeed = 1;
+//                            
+//                            [sender.view pop_addAnimation:anim forKey:@"scale"];
+//                        }
+//                        
+//                        else{
+//                            POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+//                            anim.toValue = [NSValue valueWithCGPoint:CGPointMake(1-progress, 1-progress)];
+//                            anim.springBounciness = 4;
+//                            anim.springSpeed = 1;
+//                            
+//                            [sender.view pop_addAnimation:anim forKey:@"scaleDown"];
+//                        }
+                       
+                        
+                    }
+                    else{
+                        
+                        [self updateWithProgress:progress];
+                    }
 
-                    
+                   
+
                 }
             }
         
@@ -294,6 +394,8 @@
     }
     
 }
+
+
 
 - (void)pan:(UIPanGestureRecognizer *)sender
 {

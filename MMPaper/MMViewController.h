@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MMViewController : UIViewController
+#import "MMBaseCollection.h"
+@interface MMViewController : MMBaseCollection
+//@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
