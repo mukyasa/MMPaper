@@ -1,7 +1,7 @@
 MMPaper
 =======
 
-This is Extension Of HAPaper (zoom effect on UIPanGestureRecognizer)
+MMPaper [Inspired From Paper by Facebook,]Approach to simulate Paper app
 
 ![MMPaper](http://i.imgur.com/7Yv8mSA.gif)
 
