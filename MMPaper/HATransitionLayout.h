@@ -1,10 +1,9 @@
 //
-//  HATransitionLayout.h
-//  Paper
 //
-//  Created by Heberti Almeida on 11/02/14.
-//  Copyright (c) 2014 Heberti Almeida. All rights reserved.
+//  MMPaper
 //
+//  Created by mukesh mandora on 26/12/14.
+//  Copyright (c) 2014 com.muku. All rights reserved.
 
 @import UIKit;
 

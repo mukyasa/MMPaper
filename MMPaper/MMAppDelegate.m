@@ -7,15 +7,16 @@
 //
 
 #import "MMAppDelegate.h"
-#import "HATransitionController.h"
+//#import "HATransitionController.h"
 #import "HACollectionViewSmallLayout.h"
-#import "HASmallCollectionViewController.h"
+//#import "HASmallCollectionViewController.h"
 #import "MMViewController.h"
 #import "MMSmallLayout.h"
-@interface MMAppDelegate () <UINavigationControllerDelegate, HATransitionControllerDelegate>
+#import "MMRootViewController.h"
+@interface MMAppDelegate () <UINavigationControllerDelegate>
 
 @property (nonatomic) UINavigationController *navigationController;
-@property (nonatomic) HATransitionController *transitionController;
+//@property (nonatomic) HATransitionController *transitionController;
 
 @end
 @implementation MMAppDelegate
@@ -24,29 +25,11 @@
 {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-   
-    
-//    HACollectionViewSmallLayout *smallLayout = [[HACollectionViewSmallLayout alloc] init];
-//    HASmallCollectionViewController *collectionViewController = [[HASmallCollectionViewController alloc] initWithCollectionViewLayout:smallLayout];
-//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
-//    self.navigationController.delegate = self;
-//    self.navigationController.navigationBarHidden = YES;
-//    
-//    self.transitionController = [[HATransitionController alloc] initWithCollectionView:collectionViewController.collectionView];
-//    self.transitionController.delegate = self;
     _itemHeight=self.window.frame.size.height;
     
-    MMSmallLayout *smallLayout = [[MMSmallLayout alloc] init];
-    MMViewController *collectionViewController = [[MMViewController alloc] initWithCollectionViewLayout:smallLayout];
 
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
-    self.navigationController.delegate = self;
-    self.navigationController.navigationBarHidden = YES;
-    
-    self.transitionController = [[HATransitionController alloc] initWithCollectionView:collectionViewController.collectionView];
-    self.transitionController.delegate = self;
-    
-    self.window.rootViewController = self.navigationController;
+    MMRootViewController *root=[[MMRootViewController alloc] init];
+    self.window.rootViewController = root;
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -81,35 +64,7 @@
 }
 
 
-- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
-                          interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController
-{
-    if (animationController==self.transitionController) {
-        return self.transitionController;
-    }
-    return nil;
-}
 
-
-- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                   animationControllerForOperation:(UINavigationControllerOperation)operation
-                                                fromViewController:(UIViewController *)fromVC
-                                                  toViewController:(UIViewController *)toVC
-{
-    if (![fromVC isKindOfClass:[UICollectionViewController class]] || ![toVC isKindOfClass:[UICollectionViewController class]])
-    {
-        return nil;
-    }
-    if (!self.transitionController.hasActiveInteraction)
-    {
-        return nil;
-    }
-    
-    self.transitionController.navigationOperation = operation;
-    return self.transitionController;
-}
-
-							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
