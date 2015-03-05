@@ -1,16 +1,27 @@
 MMPaper
 =======
 
-This is Extension Of HAPaper (zoom effect on UIPanGestureRecognizer)
+MMPaper [Inspired From Paper by Facebook,]Approach to simulate Paper app
 
-![Demo MMPaper](http://s25.postimg.org/mo6n6vdr3/IMG_0688.gif)
+![MMPaper](http://i.imgur.com/7Yv8mSA.gif)
 
 Working:- 
 Pan Gesture
 
 
-Things To do:-
-1.Performance Improvemnet Of Zooming On Pan Gesture
+Change Log
+==========
+1.Changed Implementation Part of Gesture
+
+2.Added Paper Notification,Friend Request,Chats button
+
+3.Pop bubble on click of Paper button
+
+Things To Do
+==========
+1.Performance Improvement
+
+2.Remaing Features(Different Custom Cell and Dynamic behaviour)
 
 Please Let Me know If anyone figure out more smooth pan gesture  
 
@@ -23,4 +34,3 @@ Contact: mandoramuku07@gmail.com
 Twitter: http://twitter.com/mukyasa1310
 
 LinkedIn: https://in.linkedin.com/in/mukeshmandora
-
