@@ -9,8 +9,19 @@ Working:-
 Pan Gesture
 
 
-Things To do:-
-1.Performance Improvemnet Of Zooming On Pan Gesture
+Change Log
+==========
+1.Changed Implementation Part of Gesture
+
+2.Added Paper Notification,Friend Request,Chats button
+
+3.Pop bubble on click of Paper button
+
+Things To Do
+==========
+1.Performance Improvement
+
+2.Remaing Features(Different Custom Cell and Dynamic behaviour)
 
 Please Let Me know If anyone figure out more smooth pan gesture  
 
