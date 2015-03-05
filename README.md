@@ -21,7 +21,7 @@ Things To Do
 ==========
 1.Performance Improvement
 
-2.Remaing Features(Different Custom Cell and Dynamic behaviour)
+2.Remaining Features(Different Custom Cell and Dynamic behaviour)
 
 Please Let Me know If anyone figure out more smooth pan gesture  
 
