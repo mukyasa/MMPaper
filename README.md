@@ -25,6 +25,21 @@ Things To Do
 
 Please Let Me know If anyone figure out more smooth pan gesture  
 
+
+**My Other Repositories**
+
+**MMTextFieldEffects:**<br />
+https://github.com/mukyasa/MMTextFieldEffects<br />
+
+**MMGooglePlayNewsStand:**<br />
+https://github.com/mukyasa/MMGooglePlayNewsStand
+
+**MMPaperPanFlip:**<br /> 
+https://github.com/mukyasa/MMPaperPanFlip<br />
+
+**MMTransitionEffect:**<br />
+https://github.com/mukyasa/MMTransitionEffect<br />
+
 Contact Me
 ==========
 Mukesh Mandora
